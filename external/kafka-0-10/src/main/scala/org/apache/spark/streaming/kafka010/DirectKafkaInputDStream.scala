@@ -215,7 +215,7 @@ private[spark] class DirectKafkaInputDStream[K, V](
       OffsetRange(tp.topic, tp.partition, fo, uo)
     }
     val rdd = new KafkaRDD[K, V](
-      context.sparkContext, executorKafkaParams, offsetRanges.toArray, getPreferredHosts, true)
+      context.sparkContext, executorKafkaParams, offsetRanges.toArray, getPreferredHosts, false)
 
     // Report the record number and metadata of this batch interval to InputInfoTracker.
     val description = offsetRanges.filter { offsetRange =>

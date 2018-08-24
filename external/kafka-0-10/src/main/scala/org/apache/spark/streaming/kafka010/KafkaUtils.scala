@@ -70,7 +70,7 @@ object KafkaUtils extends Logging {
     fixKafkaParams(kp)
     val osr = offsetRanges.clone()
 
-    new KafkaRDD[K, V](sc, kp, osr, preferredHosts, true)
+    new KafkaRDD[K, V](sc, kp, osr, preferredHosts, false)
   }
 
   /**
